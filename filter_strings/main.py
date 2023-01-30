@@ -2,11 +2,16 @@ import argparse
 import os
 import re
 
+
 def parse_args():
-    parser = argparse.ArgumentParser(description='Filter strings from a file based on regex patterns.')
-    parser.add_argument('--input_file', required=True, help='The input file to be filtered')
-    parser.add_argument('--regex', required=True, nargs='+', help='The regex patterns to filter by')
+    parser = argparse.ArgumentParser(
+        description='Filter strings from a file based on regex patterns.')
+    parser.add_argument('--input_file', required=True,
+                        help='The input file to be filtered')
+    parser.add_argument('--regex', required=True, nargs='+',
+                        help='The regex patterns to filter by')
     return parser.parse_args()
+
 
 def filter_strings(input_file, regex):
     result_folder = 'result'
@@ -21,9 +26,14 @@ def filter_strings(input_file, regex):
             if not match:
                 output_f.write(line)
 
-if __name__ == '__main__':
+
+def main():
     args = parse_args()
     try:
         filter_strings(args.input_file, args.regex)
     except Exception as e:
         print(f'An error occurred: {e}')
+
+
+if __name__ == '__main__':
+    main()

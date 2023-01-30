@@ -6,19 +6,22 @@ with open("README.md", "r") as readme_file:
 requirements = []
 
 setup(
-    name="filter strings",
-    version="0.0.1",
-    author="Jay Trairat",
+    name="filter-strings",
+    version="0.0.12",
+    author="jaytrairat",
     author_email="jaytrairat@outlook.com",
-    description="",
+    description="Filter strings from a file based on regex patterns.",
     long_description=readme,
     long_description_content_type="text/markdown",
     url="https://github.com/jaytrairat/python-filter-strings",
     packages=find_packages(),
+    entry_points={
+        'console_scripts': [
+            'filter-strings = filter_strings.main:main',
+        ],
+    },
     install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
     ],
 )
